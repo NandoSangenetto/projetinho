@@ -1,2 +1,0 @@
-# projetinho
-Created with CodeSandbox

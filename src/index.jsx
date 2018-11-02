@@ -2,13 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router } from "@reach/router";
+import { ThemeProvider } from "styled-components";
 
 import ResetStyle from "./components/ResetStyle";
 import GlobalStyle from "./components/GlobalStyle";
 
-import Pais from "./components/Pais";
-import LoadingSpinner from "./components/LoadingSpinner";
 import Card from "./components/Card";
 
 import CountryPage from "./components/CountryPage";
@@ -18,17 +17,23 @@ const client = new ApolloClient({
   uri: "https://countries.trevorblades.com/graphql"
 });
 
+const theme = {
+  primaryColor: "#334399"
+};
+
 const App = () => (
-  <ApolloProvider client={client}>
-    <ResetStyle />
-    <GlobalStyle background="#ccc" />
-    <Router>
+  <ThemeProvider theme={theme}>
+    <ApolloProvider client={client}>
+      <ResetStyle />
+      <GlobalStyle background="#ccc" />
       <Card>
-        <Route path="/" exact component={ListPage} />
-        <Route path="/:country" exact component={CountryPage} />
+        <Router>
+          <ListPage path="/" />
+          <CountryPage path="/:country" />
+        </Router>
       </Card>
-    </Router>
-  </ApolloProvider>
+    </ApolloProvider>
+  </ThemeProvider>
 );
 
 const rootElement = document.getElementById("root");

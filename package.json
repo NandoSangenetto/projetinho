@@ -1,10 +1,17 @@
 {
-  "name": "new",
+  "name": "countries-react-styled-apollo-graphql-reach-router",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "styled-component",
+    "apollo",
+    "graphql",
+    "react",
+    "reach-router"
+  ],
   "main": "src/index.jsx",
   "dependencies": {
+    "@reach/router": "1.2.1",
     "apollo-boost": "0.1.19",
     "graphql": "14.0.2",
     "react": "16.6.0",

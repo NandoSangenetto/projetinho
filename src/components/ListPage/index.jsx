@@ -43,7 +43,7 @@ class ListPage extends Component {
                   </Link>
                 ))}
                 {filteredCountries.length === 0 &&
-                  "Country not found, did you selected the right world?"}
+                  "Country not found, did you select the right world?"}
               </section>
             </>
           );
